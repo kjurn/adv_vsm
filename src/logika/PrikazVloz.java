@@ -44,7 +44,7 @@ public class PrikazVloz implements IPrikaz
      */
     public String proved(String... parametry) {
         if (parametry.length < 1) {
-            return "Neviem, čo mám zobrať";
+            return "Neviem, čo mám vziať";
         }
 
         String nazevVeci = parametry[0];
