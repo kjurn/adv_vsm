@@ -50,8 +50,8 @@ public class HerniPlanTest
      */
     @Test
     public void testAktualniProstor() {
-        Prostor planetaZem = new Prostor("Zem", "modrá planéta", false, false);
-        Prostor planetaMars = new Prostor("Mars", "červená planéta", false, false);
+        Prostor planetaZem = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
+        Prostor planetaMars = new Prostor("Mars", "červená planéta", false, false, 1, 1);
         hPlan.setAktualniProstor(planetaZem);
         assertSame(planetaZem, hPlan.getAktualniProstor());
         assertNotSame(planetaMars, hPlan.getAktualniProstor());
@@ -72,8 +72,8 @@ public class HerniPlanTest
      */
     @Test
     public void testHracVyhral() {
-        Prostor planetaZem = new Prostor("Zem", "modrá planéta", false, false);
-        Prostor planetaMars = new Prostor("Mars", "červená planéta", false, false);
+        Prostor planetaZem = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
+        Prostor planetaMars = new Prostor("Mars", "červená planéta", false, false, 1, 1);
         Vec kvapalnyVodik = new Vec("kvapalny_vodik", "Kvapalný vodík slúži ako súčasť paliva do rakety", true);
         Vec kvapalnyKyslik = new Vec("kvapalny_kyslik", "Kvapalný kyslík slúži ako súčasť paliva do rakety", true);
         Vec hladacInteligencie = new Vec("hladac_inteligencie", "Hľadač slúži na vyhľadávanie mimozemštanov", true);

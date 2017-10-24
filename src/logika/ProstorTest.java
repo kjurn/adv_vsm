@@ -48,8 +48,8 @@ public class ProstorTest
      */
     @Test
     public void testLzeProjit() {
-        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false);
-        Prostor prostor2 = new Prostor("Mars", "červená planéta", false, false);
+        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
+        Prostor prostor2 = new Prostor("Mars", "červená planéta", false, false, 1, 1);
         prostor1.setVychod(prostor2);
         prostor2.setVychod(prostor1);
         assertEquals(prostor2, prostor1.vratSousedniProstor("Mars"));
@@ -63,7 +63,7 @@ public class ProstorTest
     @Test
     public void testVeci()
     {
-        logika.Prostor prostor1 = new logika.Prostor(null, null, false, false);
+        logika.Prostor prostor1 = new logika.Prostor(null, null, false, false, 1, 1);
         logika.Vec vec1 = new logika.Vec("a", "popis a", true);
         logika.Vec vec2 = new logika.Vec("b", "popis b", false);
         prostor1.vlozVec(vec1);
@@ -78,7 +78,7 @@ public class ProstorTest
      */
     @Test
     public void testUtekPiratom() {
-        Prostor prostor1 = new Prostor("Zem", "modrá planéta", true, false);
+        Prostor prostor1 = new Prostor("Zem", "modrá planéta", true, false, 1, 1);
         assertTrue(prostor1.utekPiratom(82));
         assertFalse(prostor1.utekPiratom(50));
     }
@@ -89,8 +89,8 @@ public class ProstorTest
      */
     @Test
     public void testGetJePlynnyObor() {
-        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false);
-        Prostor prostor2 = new Prostor("Jupiter", "veľká planéta", false, true);
+        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
+        Prostor prostor2 = new Prostor("Jupiter", "veľká planéta", false, true, 1, 1);
         assertFalse(prostor1.getJePlynnyObor());
         assertTrue(prostor2.getJePlynnyObor());
     }
@@ -101,8 +101,8 @@ public class ProstorTest
      */
     @Test
     public void testGetMaPiratov() {
-        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false);
-        Prostor prostor2 = new Prostor("Mesiac", "satelit Zeme", true, false);
+        Prostor prostor1 = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
+        Prostor prostor2 = new Prostor("Mesiac", "satelit Zeme", true, false, 1, 1);
         assertFalse(prostor1.getMaPiratov());
         assertTrue(prostor2.getMaPiratov());
     }

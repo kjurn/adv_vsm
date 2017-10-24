@@ -36,25 +36,25 @@ public class HerniPlan {
         
         // vytvářejí se jednotlivé prostory
           
-        Prostor planetaMerkur = new Prostor("Merkur", "planéte Merkúr, ktorá je na strane privrátenej k Slnku horúca\nna strane odvrátenej studená ako ľad", false, false);
-        Prostor planetaVenusa = new Prostor("Venusa", "planéte Venuša, ktorá je veľkosťou najviac podobná Zemi, ale zároveň\nnajhorúcejšia", false, false);
-        Prostor planetaZem = new Prostor("Zem","planéte Zem, na ktorej začíname, plná života a vody", false, false);
-        Prostor planetaMars = new Prostor("Mars", "planéte Mars, pokrytá oxidom železitým, ktorý jej dáva červenú farbu", false, false);
-        Prostor planetaJupiter = new Prostor("Jupiter", "planéte Jupiter, najväčší plynný obor, najväčšia planéta\nSlnečnej sústavy", false, true);
-        Prostor planetaSaturn = new Prostor("Saturn" ,"planéte Saturn, plynný obor, do žlta sfarbená, s nádhernými prstencami", false, true);
-        Prostor planetaUran = new Prostor("Uran", "planéte Urán, plynný obor, otočená inak ako iné planéty", false, true);
-        Prostor planetaNeptun = new Prostor("Neptun", "planéte Neptún, plynný obor, modrá ako obloha vďaka metánu", false, true);          
-        Prostor mesiacMesiac = new Prostor("Mesiac", "mesiaci Mesiac, jediný prirodzený satelit Zeme", false, false);
-        Prostor mesiacPhobos = new Prostor("Phobos", "mesiaci Phobos, väčší z dvojice mesiacov, ktoré má Mars", true, false);
-        Prostor mesiacDeimos = new Prostor("Deimos", "mesiaci Deimos, menší z dvojice mesiacov, ktoré má Mars", false, false);        
-        Prostor mesiacGanymedes = new Prostor("Ganymedes", "mesiaci Ganymedes, najväčší mesiac v Slnečnej sústave\nväčší ako samotný Merkúr", false, false);
-        Prostor mesiacKallisto = new Prostor("Kallisto", "mesiaci Kallisto, zložený z oxidu uhličitého\nkremičitanova organických látok", true, false);
-        Prostor mesiacIo = new Prostor("Io", "mesiaci Io, vulkanicky najaktívnejšie teleso v Slnečnej sústave\nz diaľky vyzerajúci ako pizza", false, false);
-        Prostor mesiacEuropa = new Prostor("Europa", "mesiaci Európa, pokrytý ľadom, pod ktorého povrchom sa pravdepodobne\nnachádza obrovský oceán", false, false);
-        Prostor mesiacTitan = new Prostor("Titan", "mesiaci Titan, mesiac väčší ako Merkúr, ktorého atmosféra\nje tak obrovská, že kvôli nej nevidno jeho povrch ", false, false);
-        Prostor mesiacJapetus = new Prostor("Japetus", "mesiaci Japetus, ktorý má veľmi nízku hustotu", true, false);
-        Prostor mesiacTitania = new Prostor("Titania", "mesiaci Titánia, známy obrovským kaňonom, ktorý je väčší ako\nGrand Canyon", false, false);
-        Prostor mesiacTriton = new Prostor("Triton", "mesiaci Triton, najväčší mesiac Neptúna a zároveň jediný\nktorý má guľatý tvar", false, false);
+        Prostor planetaMerkur = new Prostor("Merkur", "planéte Merkúr, ktorá je na strane privrátenej k Slnku horúca\nna strane odvrátenej studená ako ľad", false, false, 1, 1);
+        Prostor planetaVenusa = new Prostor("Venusa", "planéte Venuša, ktorá je veľkosťou najviac podobná Zemi, ale zároveň\nnajhorúcejšia", false, false, 1, 1);
+        Prostor planetaZem = new Prostor("Zem","planéte Zem, na ktorej začíname, plná života a vody", false, false, 1, 1);
+        Prostor planetaMars = new Prostor("Mars", "planéte Mars, pokrytá oxidom železitým, ktorý jej dáva červenú farbu", false, false, 1, 1);
+        Prostor planetaJupiter = new Prostor("Jupiter", "planéte Jupiter, najväčší plynný obor, najväčšia planéta\nSlnečnej sústavy", false, true, 1, 1);
+        Prostor planetaSaturn = new Prostor("Saturn" ,"planéte Saturn, plynný obor, do žlta sfarbená, s nádhernými prstencami", false, true, 1, 1);
+        Prostor planetaUran = new Prostor("Uran", "planéte Urán, plynný obor, otočená inak ako iné planéty", false, true, 1, 1);
+        Prostor planetaNeptun = new Prostor("Neptun", "planéte Neptún, plynný obor, modrá ako obloha vďaka metánu", false, true, 1, 1);          
+        Prostor mesiacMesiac = new Prostor("Mesiac", "mesiaci Mesiac, jediný prirodzený satelit Zeme", false, false, 1, 1);
+        Prostor mesiacPhobos = new Prostor("Phobos", "mesiaci Phobos, väčší z dvojice mesiacov, ktoré má Mars", true, false, 1, 1);
+        Prostor mesiacDeimos = new Prostor("Deimos", "mesiaci Deimos, menší z dvojice mesiacov, ktoré má Mars", false, false, 1, 1);        
+        Prostor mesiacGanymedes = new Prostor("Ganymedes", "mesiaci Ganymedes, najväčší mesiac v Slnečnej sústave\nväčší ako samotný Merkúr", false, false, 1, 1);
+        Prostor mesiacKallisto = new Prostor("Kallisto", "mesiaci Kallisto, zložený z oxidu uhličitého\nkremičitanova organických látok", true, false, 1, 1);
+        Prostor mesiacIo = new Prostor("Io", "mesiaci Io, vulkanicky najaktívnejšie teleso v Slnečnej sústave\nz diaľky vyzerajúci ako pizza", false, false, 1, 1);
+        Prostor mesiacEuropa = new Prostor("Europa", "mesiaci Európa, pokrytý ľadom, pod ktorého povrchom sa pravdepodobne\nnachádza obrovský oceán", false, false, 1, 1);
+        Prostor mesiacTitan = new Prostor("Titan", "mesiaci Titan, mesiac väčší ako Merkúr, ktorého atmosféra\nje tak obrovská, že kvôli nej nevidno jeho povrch ", false, false, 1, 1);
+        Prostor mesiacJapetus = new Prostor("Japetus", "mesiaci Japetus, ktorý má veľmi nízku hustotu", true, false, 1, 1);
+        Prostor mesiacTitania = new Prostor("Titania", "mesiaci Titánia, známy obrovským kaňonom, ktorý je väčší ako\nGrand Canyon", false, false, 1, 1);
+        Prostor mesiacTriton = new Prostor("Triton", "mesiaci Triton, najväčší mesiac Neptúna a zároveň jediný\nktorý má guľatý tvar", false, false, 1, 1);
           
         // přiřazují se průchody mezi prostory (sousedící prostory)
         

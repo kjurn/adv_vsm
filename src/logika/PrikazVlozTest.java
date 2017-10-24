@@ -56,7 +56,7 @@ public class PrikazVlozTest
      */
     @Test
     public void testVlozProved() {
-        Prostor prostor = new Prostor("izba","na bývanie", false, false);
+        Prostor prostor = new Prostor("izba","na bývanie", false, false, 1, 1);
         Vec vec1 = new Vec("sponka", "sponka do vlasov", true);
         Vec vec2 = new Vec("kamión", "veľké vozidlo", false);
         prostor.vlozVec(vec1);

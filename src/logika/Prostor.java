@@ -29,6 +29,8 @@ public class Prostor {
     private Map<String, Vec> veci;
     private boolean maPiratov;
     private boolean jePlynnyObor;
+    private double posLeft;
+    private double posTop;
 
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -40,11 +42,13 @@ public class Prostor {
      * @param maPiratov informácia, či má daná planéta/mesiac pirátov alebo nie
      * @param jePlynnyObor informácia, či je daná planéta plynný obor alebo nie
      */
-    public Prostor(String nazev, String popis, boolean maPiratov, boolean jePlynnyObor) {
+    public Prostor(String nazev, String popis, boolean maPiratov, boolean jePlynnyObor, double posLeft, double posTop) {
         this.nazev = nazev;
         this.popis = popis;
         this.maPiratov = maPiratov;
         this.jePlynnyObor = jePlynnyObor;
+        this.posLeft = posLeft;
+        this.posTop = posTop;
         vychody = new HashSet<>();
         veci = new HashMap<>();
         

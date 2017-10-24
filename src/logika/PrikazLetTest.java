@@ -56,8 +56,8 @@ public class PrikazLetTest
     @Test
     public void testLetProved() {
         Vec veternyStit = new Vec("veterny_stit", "Tento štít slúži na priblíženie sa k plynným obrom", true);
-        Prostor planetaMars = new Prostor("Mars","červená planéta", false, false); 
-        Prostor planetaJupiter = new Prostor("Jupiter","plynný obor", false, true);
+        Prostor planetaMars = new Prostor("Mars","červená planéta", false, false, 1, 1); 
+        Prostor planetaJupiter = new Prostor("Jupiter","plynný obor", false, true, 1, 1);
         hPlan.setAktualniProstor(planetaMars);
         planetaMars.setVychod(planetaJupiter);
         planetaJupiter.setVychod(planetaMars);
