@@ -5,6 +5,8 @@
  */
 package main;
 
+import GUI.Mapa;
+import GUI.MenuLista;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,8 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
@@ -28,15 +28,22 @@ import uiText.TextoveRozhrani;
  *
  * @author User
  */
-public class GUI extends Application {
+public class Main extends Application {
     
     private TextArea centralText;
     private IHra hra;
     private TextField zadejPrikazTextField;
     
+    private Mapa mapa;
+    private MenuLista menuLista;
+    
     @Override
     public void start(Stage primaryStage) {
         hra = new Hra();
+        
+        mapa = new Mapa(hra);
+        menuLista = new MenuLista(hra, this);
+        
         BorderPane borderPane = new BorderPane();
         
         centralText = new TextArea();
@@ -66,20 +73,15 @@ public class GUI extends Application {
             }
         });
         
-        FlowPane obrazekFlowPane = new FlowPane();
-        
-        ImageView obrazekImageView = new ImageView(new Image(GUI.class.getResourceAsStream("/zdroje/plan.png"), 200, 200, false, true));
-        obrazekFlowPane.setAlignment(Pos.CENTER);
-        obrazekFlowPane.getChildren().add(obrazekImageView);
         
         
         
         FlowPane dolniLista = new FlowPane();
-        obrazekFlowPane.setPrefSize(200, 200);
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikazLabel, zadejPrikazTextField);
         
-        borderPane.setLeft(obrazekFlowPane);
+        borderPane.setTop(menuLista);
+        borderPane.setLeft(mapa);
         borderPane.setBottom(dolniLista);
         
         Scene scene = new Scene(borderPane, 750, 450);
@@ -89,6 +91,15 @@ public class GUI extends Application {
         primaryStage.show();
         zadejPrikazTextField.requestFocus();
     }
+
+    public TextArea getCentralText() {
+        return centralText;
+    }
+
+    public Mapa getMapa() {
+        return mapa;
+    }
+    
 
     /**
      * @param args the command line arguments

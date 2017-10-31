@@ -1,5 +1,10 @@
 package logika;
 
+import java.util.ArrayList;
+import java.util.List;
+import util.Observer;
+import util.Subject;
+
 
 /**
  * Trieda {@code HerniPlan} - třída představující mapu a stav adventury.
@@ -11,12 +16,14 @@ package logika;
  * @author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Jan Riha, Juraj Szucs
  * @version    31.12.2016
  */
-public class HerniPlan {
+public class HerniPlan implements Subject{
 
     private static final String CILOVY_PROSTOR = "Zem";
     private Prostor aktualniProstor;
     private Inventar inventar;
     private boolean hracPrehral = false;
+    
+    private List<Observer> listObserveru = new ArrayList<Observer>();
 
     /**
      *  Konstruktor, který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -243,6 +250,7 @@ public class HerniPlan {
      */
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
+       notifyObservers();
     }
     
     /**
@@ -281,6 +289,23 @@ public class HerniPlan {
      */
     public void setHracPrehral(boolean hracPrehral) {
         this.hracPrehral = hracPrehral;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        listObserveru.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        listObserveru.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer listObserveruItem : listObserveru) {
+            listObserveruItem.update();
+        }
     }
 
 }
