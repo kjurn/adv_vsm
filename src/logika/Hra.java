@@ -18,6 +18,7 @@ public class Hra implements IHra {
     private HerniPlan herniPlan;
     private Inventar inventar;
     private boolean konecHry = false;
+    private boolean hracPrehral = false;
     private VesmirnaLod vesmirnaLod;
 
     /**
@@ -28,10 +29,10 @@ public class Hra implements IHra {
     public Hra() {
         inventar = new Inventar();
         vesmirnaLod = new VesmirnaLod();
-        herniPlan = new HerniPlan(inventar);
+        herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
-        platnePrikazy.vlozPrikaz(new PrikazLet(herniPlan, inventar, vesmirnaLod));
+        platnePrikazy.vlozPrikaz(new PrikazLet(this, herniPlan, inventar, vesmirnaLod));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
         platnePrikazy.vlozPrikaz(new PrikazVloz(herniPlan, inventar));
         platnePrikazy.vlozPrikaz(new PrikazProzkoumej(herniPlan));
@@ -66,6 +67,44 @@ public class Hra implements IHra {
      public boolean konecHry() {
         return konecHry;
     }
+     
+        /**
+     *  Metoda vracia hodnotu premennej hracPrehral, ktorá obsahuje 
+     *  informáciu o tom, či hráč prehral alebo nie
+     *
+     *@return  true = hráč prehral, false = hráč neprehral
+     */
+    public boolean getHracPrehral() {
+        return hracPrehral;
+    }
+    
+    /**
+     *  Metoda nastavuje hodnotu premennej hracPrehral, ktorá obsahuje 
+     *  informáciu o tom, či hráč prehral alebo nie
+     *
+     *@param hracPrehral true = hráč prehral, false = hráč vyhral
+     */
+        public void setHracPrehral(boolean hracPrehral) {
+        this.hracPrehral = hracPrehral;
+    }
+     
+    /**
+     *  Metoda testuje, či hráč vyhral alebo nie, porovnáva aktuálny
+     *  priestor s cieľovým priestorom a kontroluje, či 
+     *  hráč zozbieral všetky potrebné predmety,
+     *  pri testovaní využíva metódu jeVInventari("názov_predmetu") 
+     *
+     *@return  true = hráč vyhral, false = hráč ešte nevyhral
+     */
+    public boolean getHracVyhral() {
+        if (this.getHerniPlan().getAktualniProstor().getNazev().equals(this.getHerniPlan().getCilovyProstor()) && inventar.jeVInventari("hladac_inteligencie") && 
+        inventar.jeVInventari("kvapalny_vodik") && inventar.jeVInventari("protonova_strela") && inventar.jeVInventari("laserovy_unosny_luc") &&
+        inventar.jeVInventari("kvapalny_kyslik") && inventar.jeVInventari("kreslitel_poli")) {
+            return true;
+        }
+        
+        return false;
+    }
 
     /**
      *  Metoda zpracuje řetězec uvedený jako parametr, rozdělí ho na slovo příkazu a další parametry.
@@ -87,11 +126,11 @@ public class Hra implements IHra {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
             textKVypsani = prikaz.proved(parametry);
 
-            if (herniPlan.hracVyhral()) {
+            if (getHracVyhral()) {
                 konecHry = true;
                 return "Tvoja misia bola úspešná! Vdaka tebe teraz\n" +
             "môžeme vyslať flotilu lodí";
-            } else if (herniPlan.getHracPrehral()) {
+            } else if (getHracPrehral()) {
                 konecHry = true;
             }
         } else {
@@ -120,5 +159,21 @@ public class Hra implements IHra {
      public HerniPlan getHerniPlan(){
         return herniPlan;
      }
+     /**
+     *  Metoda vrátí odkaz na vesmírnu loď.
+     *  
+     *  @return     odkaz na vesmírnu loď
+     */
+     public VesmirnaLod getVesmirnaLod(){
+        return vesmirnaLod;
+     }
+      /**
+     *  Metoda vrátí odkaz na inventár.
+     *  
+     *  @return     odkaz na inventár
+     */
+     public Inventar getInventar() {
+        return inventar;
+    }
     
 }

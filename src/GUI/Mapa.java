@@ -5,23 +5,21 @@
  */
 package GUI;
 
+import main.Main;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import logika.IHra;
-import main.Main;
 import util.Observer;
 
 /**
- *
- * @author User
+ * Trieda Mapa sa stará o zobrazenie mapy priestorov
+ * @author Juraj Szücs
  */
 public class Mapa extends AnchorPane implements Observer {
     
     public IHra hra;
-    private Circle tecka;
+    private ImageView raketa;
     
     public Mapa(IHra hra) {
         this.hra = hra;
@@ -29,29 +27,39 @@ public class Mapa extends AnchorPane implements Observer {
         init();
     }
     
+    /**
+     * Metóda init inicializuje obrázok mapy a obrázok kozmickej lode
+     * 
+     */
+    
     private void init() {
-        ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/plan.png"), 200, 200, false, true));
+        ImageView obrazekImageView = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/plan.png"), 427, 320, false, true));
+        raketa = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/spaceship.png"), 30, 30, false, true));
         
-        tecka = new Circle(10, Paint.valueOf("red"));
-        
-        this.getChildren().addAll(obrazekImageView, tecka);
+        this.getChildren().addAll(obrazekImageView, raketa);
         update();
     }
     
+    /**
+     * Metóda nastavuje a zmaže Observera a slúži na spustenie novej inštancie hry
+     * 
+     * @param novaHra hra, ktorá sa nastaví ako nová
+     */
     public void newGame(IHra novaHra) {
         hra.getHerniPlan().removeObserver(this);       
         hra = novaHra;
         hra.getHerniPlan().registerObserver(this);
-        update();
-        
+        update();   
     }
+    
+    /**
+     * Metóda nastavuje pozíciu kozmickej lode vzhľadom na mapu
+     * 
+     */
 
     @Override
     public void update() {
-       this.setTopAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosTop());
-       this.setTopAnchor(tecka, hra.getHerniPlan().getAktualniProstor().getPosLeft());
+       this.setTopAnchor(raketa, hra.getHerniPlan().getAktualniProstor().getPosTop());
+       this.setLeftAnchor(raketa, hra.getHerniPlan().getAktualniProstor().getPosLeft());
     }
-    
-    
-    
 }

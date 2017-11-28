@@ -63,7 +63,7 @@ public class PrikazProzkoumej implements IPrikaz
     /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
-     *  @ return nazev prikazu
+     *  @return NAZEV nazev prikazu
      */
     @Override
     public String getNazev() {

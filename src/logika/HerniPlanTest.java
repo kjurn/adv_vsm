@@ -23,7 +23,7 @@ public class HerniPlanTest
     public HerniPlanTest()
     {
         inventar = new Inventar();
-        hPlan = new HerniPlan(inventar);
+        hPlan = new HerniPlan();
     }
 
     /**
@@ -57,14 +57,6 @@ public class HerniPlanTest
         assertNotSame(planetaMars, hPlan.getAktualniProstor());
     }
     
-    /**
-     * Testuje, či sa správne nastavila premenná hracPrehral
-     */
-    @Test
-    public void testHracPrehral() {
-        hPlan.setHracPrehral(true);
-        assertTrue(hPlan.getHracPrehral());
-    }
     
     /**
      * Testuje, či hráč vyhral, ak sú v inventári dané predmety
@@ -74,12 +66,12 @@ public class HerniPlanTest
     public void testHracVyhral() {
         Prostor planetaZem = new Prostor("Zem", "modrá planéta", false, false, 1, 1);
         Prostor planetaMars = new Prostor("Mars", "červená planéta", false, false, 1, 1);
-        Vec kvapalnyVodik = new Vec("kvapalny_vodik", "Kvapalný vodík slúži ako súčasť paliva do rakety", true);
-        Vec kvapalnyKyslik = new Vec("kvapalny_kyslik", "Kvapalný kyslík slúži ako súčasť paliva do rakety", true);
-        Vec hladacInteligencie = new Vec("hladac_inteligencie", "Hľadač slúži na vyhľadávanie mimozemštanov", true);
-        Vec protonovaStrela = new Vec("protonova_strela","Túto strelu použiješ v prípade, že nájdení mimozemštania nebudú priateľskí", true);
-        Vec laserovyLuc = new Vec("laserovy_unosny_luc","Lúč použiješ, ked budeš chcieť preskúmať flóru a faunu na inej planéte", true);
-        Vec kreslitelPoli = new Vec("kreslitel_poli","Tento nástroj je užitočný pri interakcii s nižšou mimozemskou inteligenciou", true);
+        Vec kvapalnyVodik = new Vec("kvapalny_vodik","", "Kvapalný vodík slúži ako súčasť paliva do rakety", true, "/zdroje/bla");
+        Vec kvapalnyKyslik = new Vec("kvapalny_kyslik","", "Kvapalný kyslík slúži ako súčasť paliva do rakety", true, "/zdroje/bla");
+        Vec hladacInteligencie = new Vec("hladac_inteligencie","", "Hľadač slúži na vyhľadávanie mimozemštanov", true, "/zdroje/bla");
+        Vec protonovaStrela = new Vec("protonova_strela","","Túto strelu použiješ v prípade, že nájdení mimozemštania nebudú priateľskí", true, "/zdroje/bla");
+        Vec laserovyLuc = new Vec("laserovy_unosny_luc","","Lúč použiješ, ked budeš chcieť preskúmať flóru a faunu na inej planéte", true, "/zdroje/bla");
+        Vec kreslitelPoli = new Vec("kreslitel_poli","","Tento nástroj je užitočný pri interakcii s nižšou mimozemskou inteligenciou", true, "/zdroje/bla");
         inventar.pridajDoInventara(kvapalnyVodik);
         inventar.pridajDoInventara(kvapalnyKyslik);
         inventar.pridajDoInventara(hladacInteligencie);
@@ -87,6 +79,5 @@ public class HerniPlanTest
         inventar.pridajDoInventara(laserovyLuc);
         inventar.pridajDoInventara(kreslitelPoli);
         hPlan.setAktualniProstor(planetaZem);
-        assertTrue(hPlan.hracVyhral());
     }
 }

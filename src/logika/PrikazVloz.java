@@ -65,7 +65,7 @@ public class PrikazVloz implements IPrikaz
         }
         
         if (inventar.pridajDoInventara(vec)) {
-            return nazevVeci + " bola vlozená do inventára";
+            return nazevVeci + " bol vlozená do inventára";
         } else {
             herniPlan.getAktualniProstor().vlozVec(vec);
             return "Inventár je plný, nie je možné vložiť";
@@ -75,7 +75,7 @@ public class PrikazVloz implements IPrikaz
     /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
-     *  @ return nazev prikazu
+     *  @return NAZEV nazev prikazu
      */
     @Override
     public String getNazev() {

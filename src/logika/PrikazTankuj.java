@@ -52,7 +52,7 @@ public class PrikazTankuj implements IPrikaz {
             return "V inventári nemáš palivo. Nemôžeš natankovať lod";
         } else {
             inventar.vymazZInventara("palivo");
-            vesmirnaLod.setZivotLode(false);
+            vesmirnaLod.setPalivoLode(false);
             return "Lod bola dotankovaná, teraz máš plnú nádrž";
         }
     }

@@ -15,6 +15,7 @@ class PrikazLet implements IPrikaz {
     private Inventar inventar;
     private Random nahoda;
     private VesmirnaLod vesmirnaLod;
+    private Hra hra;
     private static final int MINIMALNI_ZIVOT = 20;
     private static final int MINIMALNI_PALIVO = 20;
     
@@ -25,7 +26,8 @@ class PrikazLet implements IPrikaz {
     *  @param inventar odkaz na inventár, ktorý sa používa na vkladanie a vyhadzovanie vecí z herného plánu
     *  @param vesmirnaLod odkaz na vesmírnu lod, ktorá sa používa na znižovanie a zvyšovanie života lode
     */    
-    public PrikazLet(HerniPlan plan, Inventar inventar, VesmirnaLod vesmirnaLod) {
+    public PrikazLet(Hra hra, HerniPlan plan, Inventar inventar, VesmirnaLod vesmirnaLod) {
+        this.hra = hra;
         this.plan = plan;
         this.inventar = inventar;
         this.nahoda = new Random();
@@ -64,12 +66,12 @@ class PrikazLet implements IPrikaz {
         } 
         
         if (vesmirnaLod.getZivotLode() < MINIMALNI_ZIVOT) {
-            plan.setHracPrehral(true);
+            hra.setHracPrehral(true);
             return "Nedostatok života, lod bola zničená, misia neúspešná";
         }
         
         if (vesmirnaLod.getPalivoLode() < MINIMALNI_PALIVO) {
-            plan.setHracPrehral(true);
+            hra.setHracPrehral(true);
             return "Nedostatok paliva, loď nemôže letieť, misia neúspešná";
         }
         
@@ -98,7 +100,7 @@ class PrikazLet implements IPrikaz {
             sousedniProstor.dlouhyPopis() + vesmirnaLod.popisZivota(vesmirnaLod.getZivotLode()) +
             "\n" + vesmirnaLod.popisPaliva(vesmirnaLod.getPalivoLode());
         } else if (plan.getAktualniProstor().getMaPiratov() && ! plan.getAktualniProstor().utekPiratom(nahodneCislo)) {
-            plan.setHracPrehral(true);
+            hra.setHracPrehral(true);
             return "Zabili a okradli ťa piráti, misia neúspešná";
         } else {
             vesmirnaLod.setZivotLode(true);

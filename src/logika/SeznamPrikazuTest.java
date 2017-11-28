@@ -25,7 +25,7 @@ public class SeznamPrikazuTest
         hra = new Hra();
         inventar = new Inventar();
         prKonec = new PrikazKonec(hra);
-        prLet = new PrikazLet(hra.getHerniPlan(), inventar, vesmirnaLod);
+        prLet = new PrikazLet(hra, hra.getHerniPlan(), inventar, vesmirnaLod);
     }
     
     /**

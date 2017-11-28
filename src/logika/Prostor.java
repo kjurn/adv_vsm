@@ -41,6 +41,8 @@ public class Prostor {
      * @param popis Popis prostoru.
      * @param maPiratov informácia, či má daná planéta/mesiac pirátov alebo nie
      * @param jePlynnyObor informácia, či je daná planéta plynný obor alebo nie
+     * @param posLeft y-ntá pozícia rakety na mape
+     * @param posTop  x-tá pozícia rakety na mape
      */
     public Prostor(String nazev, String popis, boolean maPiratov, boolean jePlynnyObor, double posLeft, double posTop) {
         this.nazev = nazev;
@@ -54,10 +56,29 @@ public class Prostor {
         
     }
 
+    /**
+     * 
+     * Vráti mapu s vecami, ktoré sa nachádzajú v priestore
+     * @return mapa s vecami v priestore
+     */
+    public Map<String, Vec> getVeci() {
+        return veci;
+    }
+
+    /**
+     * 
+     * Vráti x-ovú pozíciu daného priestoru na mape
+     * @return pozícia x
+     */
     public double getPosLeft() {
         return posLeft;
     }
 
+       /**
+     * 
+     * Vráti y-novú pozíciu daného priestoru na mape
+     * @return pozícia y
+     */
     public double getPosTop() {
         return posTop;
     }
@@ -113,7 +134,7 @@ public class Prostor {
      * popis pravidel pro vytvareni metody hashCode je u metody hashCode ve
      * tride Object
      * 
-     * @ return Výsledek;
+     * @return Výsledek
      */
     @Override
     public int hashCode() {

@@ -46,8 +46,8 @@ public class VecTest
      */
     @Test
     public void testMetodyGetNazev() {
-        Vec vec1 = new Vec("kameň", "obyčajný kameň", true);
-        Vec vec2 = new Vec("papier", "obyčajný papier", true);
+        Vec vec1 = new Vec("kameň","", "obyčajný kameň", true, "/zdroje/bla");
+        Vec vec2 = new Vec("papier","", "obyčajný papier", true, "/zdroje/bla");
         assertSame("kameň", vec1.getNazev());
         assertNotSame("kameň", vec2.getNazev());
     }
@@ -57,8 +57,8 @@ public class VecTest
      */
     @Test
     public void testMetodyGetPopis() {
-        Vec vec1 = new Vec("kameň", "obyčajný kameň", true);
-        Vec vec2 = new Vec("papier", "obyčajný papier", true);
+        Vec vec1 = new Vec("kameň","", "obyčajný kameň", true, "/zdroje/bla");
+        Vec vec2 = new Vec("papier","", "obyčajný papier", true, "/zdroje/bla");
         assertSame("obyčajný kameň", vec1.getPopis());
         assertNotSame("obyčajný kameň", vec2.getPopis());
     }
@@ -68,8 +68,8 @@ public class VecTest
      */
     @Test
     public void testMetodyIsPrenositelna() {
-        Vec vec1 = new Vec("kameň", "obyčajný kameň", true);
-        Vec vec2 = new Vec("hora", "veľmi vysoká hora", false);
+        Vec vec1 = new Vec("kameň","", "obyčajný kameň", true, "/zdroje/bla");
+        Vec vec2 = new Vec("hora","", "veľmi vysoká hora", false, "/zdroje/bla");
         assertFalse(vec2.isPrenositelna());
         assertTrue(vec1.isPrenositelna());
     }

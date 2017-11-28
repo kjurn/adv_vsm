@@ -1,19 +1,26 @@
 package logika;
 
+import java.util.ArrayList;
+import java.util.List;
+import util.Observer;
+import util.Subject;
+
+
 
 /**
  * Trieda {@code VesmirnaLod} popisuje vesmírnu lod, ktorá
- * slúži na pohyb medzi planétami a mesiacmi.
+ * má v sebe uložený stav vesmírnej lode.
  * Táto trieda je súčasťou jednoduchej textovej hry.
  * 
  * @author  Juraj Szucs
  * @version 31.12.2016
  */
-public class VesmirnaLod {
+public class VesmirnaLod implements Subject {
  
     private int zivotLode = 100;
     private int palivoLode = 100;
-
+    private List<Observer> listObserveru = new ArrayList<>();
+    
     /**
      * Metóda vracia hodnotu atribútu zivotLode
      * 
@@ -94,4 +101,32 @@ public class VesmirnaLod {
             return "Lodi zostáva "+ zostatokPaliva + " paliva";
         }
     }       
+
+        /**
+     *  Metóda pridáva pozorovateľov do listu pozorovateľov
+     * @param observer Pozorovateľ
+     */
+    @Override
+    public void registerObserver(Observer observer) {
+        listObserveru.add(observer);
+    }
+
+    /**
+     * Metóda odoberá pozorovateľov z listu pozorovateľov
+     * @param observer Pozorovateľ
+     */
+    @Override
+    public void removeObserver(Observer observer) {
+        listObserveru.remove(observer);
+    }
+
+    /**
+     *  Metóda aktualizuje pozorovateľov v liste pozorovateľov.
+     */
+    @Override
+    public void notifyObservers() {
+        for (Observer listObserveruItem : listObserveru) {
+            listObserveruItem.update();
+        }
+    }
  }

@@ -52,7 +52,20 @@ public interface IHra
      *  @return     odkaz na herní plán
      */
      public HerniPlan getHerniPlan();
-    
+     
+     /**
+      * Metóda vráti odkaz na inventár
+      * 
+      * @return inventár 
+      */
+     public Inventar getInventar();
+     
+     /**
+      * Metóda vráti odkaz na vesmírnu loď
+      * 
+      * @return vesmírna loď
+      */
+     public VesmirnaLod getVesmirnaLod();
     //== ZDĚDĚNÉ METODY ========================================================
     //== INTERNÍ DATOVÉ TYPY ===================================================
 }

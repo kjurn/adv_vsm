@@ -1,6 +1,10 @@
 package logika;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import util.Observer;
+import util.Subject;
 
 
 
@@ -12,11 +16,12 @@ import java.util.HashMap;
  * @author        Juraj Szucs
  * @version       31.12.2016
  */
-public class Inventar
+public class Inventar implements Subject
 {
     
     private static final int KAPACITA = 10;
     private Map<String, Vec> inventar;
+    private List<Observer> listObserveru = new ArrayList<>();
     
     /**
      * Konštruktor objektov triedy Inventar
@@ -100,7 +105,44 @@ public class Inventar
         
         for (String nazov : inventar.keySet()) {
             vratenyText += " " + nazov;
-        }            
+        }
         return vratenyText;
+    }
+   
+    /**
+     *  Metóda pridáva pozorovateľov do listu pozorovateľov
+     * @param observer Pozorovateľ
+     */
+    @Override
+    public void registerObserver(Observer observer) {
+        listObserveru.add(observer);
+    }
+
+    /**
+     * Metóda odoberá pozorovateľov z listu pozorovateľov
+     * @param observer Pozorovateľ
+     */
+    @Override
+    public void removeObserver(Observer observer) {
+        listObserveru.remove(observer);
+    }
+
+    /**
+     *  Metóda aktualizuje pozorovateľov v liste pozorovateľov.
+     */
+    @Override
+    public void notifyObservers() {
+        for (Observer listObserveruItem : listObserveru) {
+            listObserveruItem.update();
+        }
+    }
+
+    /**
+     * Metóda vráti obsah celého inventára ako mapu
+     * 
+     * @return mapa inventár 
+     */
+    public Map<String, Vec> getInventarMap() {
+        return inventar;
     }
 }

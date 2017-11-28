@@ -33,17 +33,17 @@ public class InventarTest
     public InventarTest()
     {
         inventar = new Inventar();
-        vec1 = new Vec("lopta", "na hranie futbalu", true);
-        vec2 = new Vec("pravítko", "na rysovanie", true);
-        vec3 = new Vec("pero", "na písanie", true);
-        vec4 = new Vec("myš", "na používanie PC", true);
-        vec5 = new Vec("tričko", "na nosenie", true);
-        vec6 = new Vec("telefón", "na telefonovanie", true);
-        vec7 = new Vec("rúž", "pre ženy", true);
-        vec8 = new Vec("kvet", "na skrášlenie okolia", true);
-        vec9 = new Vec("kufor", "na prenášanie vecí", true);
-        vec10 = new Vec("špagety", "na jedenie", true);
-        vec11 = new Vec("taška", "na prenášanie nákupu", true);
+        vec1 = new Vec("lopta", "","na hranie futbalu", true, "/zdroje/bla");
+        vec2 = new Vec("pravítko", "","na rysovanie", true, "/zdroje/bla");
+        vec3 = new Vec("pero", "","na písanie", true, "/zdroje/bla");
+        vec4 = new Vec("myš", "","na používanie PC", true, "/zdroje/bla");
+        vec5 = new Vec("tričko", "","na nosenie", true, "/zdroje/bla");
+        vec6 = new Vec("telefón", "","na telefonovanie", true, "/zdroje/bla");
+        vec7 = new Vec("rúž", "","pre ženy", true, "/zdroje/bla");
+        vec8 = new Vec("kvet", "","na skrášlenie okolia", true, "/zdroje/bla");
+        vec9 = new Vec("kufor", "","na prenášanie vecí", true, "/zdroje/bla");
+        vec10 = new Vec("špagety", "","na jedenie", true, "/zdroje/bla");
+        vec11 = new Vec("taška", "","na prenášanie nákupu", true, "/zdroje/bla");
     }
 
     /**

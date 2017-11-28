@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sk">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Nápoveda k hre vesmírna adventúrad" />
+        <meta name="author" content="Juraj Szücs" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16" />
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+        <title>Vesmírna adventúra - hra</title>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="pic">
+                    <a href="#">
+                        <img src="rocket.png" alt="Logo na zobrazenie hlavnej stránky" width="128" height="128" />
+                    </a>
+                </div>
+                <div id="heading">
+                    <h1>Vesmírna adventúra</h1>
+                </div>
+            </div>
+            <div id="main">
+                <div id="navigation">
+                    <h2>Obsah</h2>
+                    <ul>
+                        <li><a href="#goal">Cieľ hry</a></li>
+                        <li><a href="#requirements">Zoznam potrebných vecí a materiálov</a></li>
+                        <li><a href="#commands">Príkazy</a></li>
+                        <li><a href="#map">Mapa planét/mesiacov</a></li>
+                        <li><a href="#danger">Nástrahy</a></li>
+                        <li><a href="#tips">Tipy k hre</a></li>
+                    </ul>
+                </div>
+                <div id="content">
+                    <h2 id="goal">Cieľ hry</h2>
+                    <p>
+                        V tejto adventúre sa stanete pilotom vesmírnej lode, ktorá bola vyslaná na 
+                        medziplanetárnu misiu v Slnečnej sústave. Cieľom tejto misie je preskúmať
+                        Slnečnú sústavu, pozbierať určité veci a materiály, ktoré sú potrebné ku 
+                        konštrukcii vesmírnej flotily a vrátiť úspešne naspäť na Zem. Flotila bude 
+                        vyslaná mimo Slnečnej sústavy a jej cieľ bude kontaktovať mimozemskú civilizáciu. 
+                    </p>
+                    <h2 id="requirements">Zoznam potrebných vecí a materiálov</h2>
+                    <p>
+                        Veci a materiály, ktoré bude potrebné zozbierať sú nasledovné:
+                    </p>
+                    <ul>
+                        <li>Hľadač mimozemskej inteligencie (HMI)</li>
+                        <li>Kvapalný vodík</li>
+                        <li>Kvapalný kyslík</li>
+                        <li>Protónová strela</li>
+                        <li>Laserový únosný lúč (LUL)</li>
+                        <li>Kresliteľ polí</li>
+                    </ul>
+                    <h2 id="commands">Príkazy</h2>
+                    <p>
+                        V hre je možné zadať nasledovné príkazy:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Príkaz</th>
+                            <th>Čo robí</th>
+                            <th>Použitie</th>
+                        </tr>
+                        <tr>
+                            <td>napoveda</td>
+                            <td>Tento príkaz zobrazí všetky ostatné príkazy a vašu úlohu</td>
+                            <td>napoveda</td>
+                        </tr>
+                        <tr>
+                            <td>prozkoumej</td>
+                            <td>Príkaz umožní preskúmanie jednotlivých vecí a materiálov</td>
+                            <td>prozkoumej vec</td>
+                        </tr>
+                        <tr>
+                            <td>let</td>
+                            <td>Umožňuje vám uskutočniť let na inú planétu alebo mesiac</td>
+                            <td>let planeta</td>
+                        </tr>
+                        <tr>
+                            <td>konec</td>
+                            <td>Pomocou tohto príkazu ukončíte hru</td>
+                            <td>konec</td>
+                        </tr>
+                        <tr>
+                            <td>vloz</td>
+                            <td>Tento príkaz umožňuje vloženie veci/materiálu do inventár</td>
+                            <td>vloz vec</td>
+                        </tr>
+                        <tr>
+                            <td>inventar</td>
+                            <td>Tento príkaz zobrazí veci, ktoré má lod aktuálne na palube</td>
+                            <td>inventar</td>
+                        </tr>
+                        <tr>
+                            <td>vyhod</td>
+                            <td>Príkaz vyhod vyhodí vec/materiál z inventára</td>
+                            <td>vyhod vec</td>
+                        </tr>
+                        <tr>
+                            <td>oprav</td>
+                            <td>Pomocou tohto príkazu opravíte vašu lod, ale v inventári musíte mať opravný balíček</td>
+                            <td>oprav</td>
+                        </tr>
+                        <tr>
+                            <td>tankuj</td>
+                            <td>Pomocou tohto príkazu opravíte vašu lod, ale v inventári musíte mať palivo</td>
+                            <td>tankuj</td>
+                        </tr>  
+                    </table>
+                    <h2 id="map">Mapa planét/mesiacov</h2>
+                    <img src="plan.png" alt="Plán hry Vesmírna adventúra" width="640" height="480" title="Plán hry" />
+                    <h2 id="danger">Nástrahy</h2>
+                    <p>
+                        V hre sa nachádza viacero nástrah, ktorým sa budete musieť vyvarovať, aby ste vyhrali. 
+                        K niektorým planétam (plynným obrom) sa nebudete môcť priblížiť bez špeciálneho veterného 
+                        štítu, pretože inak by vás rozmetali silné vetry, ktoré vejú na týchto planétach. 
+                        Na niektorých mesiacoch si na vás počíhajú vesmírni piráti, 
+                        ktorí vás budú chcieť zabiť a zmocniť sa predmetov na lodi. 
+                        Loď bohužiaľ nie je vybavená žiadnymi zbraňami, preto jediná možnosť ako pirátom ujsť je odletieť 
+                        na inú planétu, mesiac. Niekedy však piráti môžu byť rýchlejší a tým 
+                        pádom máte smolu. Loď sa pri lete opotrebúva a preto budete musieť hľadať opravné balíčky, s ktorými si môžete opraviť loď. 
+                        Ak takýto balíček nenájdete alebo ho zabudnete použiť, loď sa zničí 
+                        a misiu nedokončíte. Loď má obmedzené množstvo paliva, 
+                        preto si musíte dávať pozor na to, aby ste mali dostatok paliva 
+                        na let na inú planétu/mesiac. Palivo môžete nájsť na rôznych planétach/mesiacoch. 
+                        Pri vyčerpaní paliva nemôžete letieť ďalej a tým pádom bude misia neúspešná. 
+                    </p>
+                    <h2 id="tips">Tipy k hre</h2>
+                    <ul>
+                        <li>Dávajte si pozor na stav paliva lode, ak je veľmi nízky, tak hrozí, že na ďalšiu planétu či mesiac nedoletíte. Snažte sa tankovať pri minimálnom množstve paliva, aby ste zužitkovali čo najviac</li>
+                        <li>Dávajte si pozor na stav života lode, ktorá sa opotrebúva pri každom prelete. Opravný balík použite s rozvahou tak, aby loď mala dostatok života.</li>
+                        <li>Veľké planéty (plynné obry) majú veľmi husté atmosféry a dujú v nich silné vetry. Na preskúmanie týchto planét budete potrebovať špeciálny štít.</li>
+                        <li>Piráti sa obvykle nevyskytujú na plynných obroch, práve kvôli silným vetrom. </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer">
+                Copyright &copy; 2017 Juraj Szücs
+            </div>
+        </div>
+    </body>
+</html>

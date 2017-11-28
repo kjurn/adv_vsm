@@ -53,7 +53,7 @@ public class PrikazOpravTest
      */
     @Test
     public void testOpravProved() {
-        Vec balik = new Vec("opravny_balik", "Na opravenie lodi", true);
+        Vec balik = new Vec("opravny_balik","", "Na opravenie lodi", true, "/zdroje/bla");
         assertEquals("V inventári nemáš opravný balík. Nemôžeš opraviť lod", oprav.proved());
         inventar.pridajDoInventara(balik);
         assertEquals("Lod bola opravená, teraz máš plný život", oprav.proved());

@@ -6,11 +6,25 @@
 package util;
 
 /**
- *
- * @author User
+ * Interface, ktorý musia triedy implementovať, aby mohli manipulovať s pozorovateľmi
+ * @author Juraj Szücs
  */
 public interface Subject {
+
+    /**
+     *  Metóda pridá pozorovateľa
+     * @param observer Pozorovateľ
+     */
     void registerObserver(Observer observer);
+
+    /**
+     *  Metóda odoberie pozorovateľa
+     * @param observer Pozorovateľ
+     */
     void removeObserver(Observer observer);
+
+    /**
+     * Metóda upozorní pozorovateľov.
+     */
     void notifyObservers();
 }

@@ -17,8 +17,10 @@ public class Vec
 {
     //== Datové atributy (statické i instancí)======================================
     private String nazev;
+    private String nazevGrafika;
     private String popis;
     private boolean prenositelna;
+    private String umiestnenie;
     
     //== Konstruktory a tovární metody =============================================
 
@@ -27,15 +29,20 @@ public class Vec
      *  
      *  @param nazev názov prostoru, jednoznačný identifikátor, jedno slovo alebo
      *  viacslovný názov bez medzier.
+     *  @param nazevGrafika názov veci v grafickom prostredí
      *  @param popis Popis veci
      *  @param prenositelna informácia, či je možné vec preniesť alebo nie
+     *  @param umiestnenie umiestnenie obrázku veci na disku
      */
-    public Vec(String nazev, String popis, boolean prenositelna)
+    public Vec(String nazev, String nazevGrafika, String popis, boolean prenositelna, String umiestnenie)
     {
         this.nazev = nazev;
+        this.nazevGrafika = nazevGrafika;
         this.popis = popis;
         this.prenositelna = prenositelna;
+        this.umiestnenie = umiestnenie;
     }
+
 
     //== Nesoukromé metody (instancí i třídy) ======================================
     /**
@@ -47,6 +54,16 @@ public class Vec
     public String getNazev() {
         return nazev;
     }
+    
+    /**
+     * Metóda vráti názov veci v grafickej verzii
+     * 
+     * @return Názov veci 
+     */
+    public String getNazevGrafika() {
+        return nazevGrafika;
+    }
+
     
     /**
      * Metóda vráti popis veci
@@ -67,6 +84,16 @@ public class Vec
     public boolean isPrenositelna() {
         return prenositelna;
     }
+    /**
+    * Metóda umiestnenie obrázku danej veci
+    * 
+    * @return umiestnenie
+    * 
+    */
+    public String getUmiestnenie() {
+        return umiestnenie;
+    }
+
 
     // Možná bude potřeba přidat settery pro atributy 'popis' a 'prenositelna'.
     // Atribut 'nazev' by se měnit neměl.

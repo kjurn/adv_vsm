@@ -6,9 +6,13 @@
 package util;
 
 /**
- *
- * @author User
+ * Interface, ktorý musia triedy implementovať, aby sa aktualizovali všetky subjekty
+ * @author Juraj Szücs
  */
 public interface Observer {
+
+    /**
+     * Metóda aktualizuje všetky subjekty.
+     */
     void update();
 }

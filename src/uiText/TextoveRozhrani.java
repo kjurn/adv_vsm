@@ -20,6 +20,8 @@ public class TextoveRozhrani {
 
     /**
      *  Vytváří hru.
+     * 
+     * @param hra inštancia hry, s ktorom sa hrá
      */
     public TextoveRozhrani(IHra hra) {
         this.hra = hra;

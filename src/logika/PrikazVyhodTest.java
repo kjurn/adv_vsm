@@ -25,7 +25,7 @@ public class PrikazVyhodTest
     public PrikazVyhodTest()
     {
         inventar = new Inventar();
-        hPlan = new HerniPlan(inventar);
+        hPlan = new HerniPlan();
         vyhod = new PrikazVyhod(hPlan, inventar);
     }
 
@@ -55,9 +55,9 @@ public class PrikazVyhodTest
      */
     @Test
     public void testVyhodProved() {
-        Vec vec1 = new Vec("jogurt", "potravina plná probiotických kultúr", true);
-        Vec vec2 = new Vec("páska", "iba kus pásky", true);
-        Vec vec3 = new Vec("peňaženka", "na prenášanie peňazí", true);
+        Vec vec1 = new Vec("jogurt","", "potravina plná probiotických kultúr", true, "/zdroje/bla");
+        Vec vec2 = new Vec("páska", "","iba kus pásky", true, "/zdroje/bla");
+        Vec vec3 = new Vec("peňaženka","", "na prenášanie peňazí", true, "/zdroje/bla");
         inventar.pridajDoInventara(vec1);
         inventar.pridajDoInventara(vec2);
         assertEquals(vec1.getNazev() + " bola vyhodená z inventára", vyhod.proved(vec1.getNazev()));

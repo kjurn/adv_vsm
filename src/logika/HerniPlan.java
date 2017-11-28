@@ -16,25 +16,23 @@ import util.Subject;
  * @author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Jan Riha, Juraj Szucs
  * @version    31.12.2016
  */
-public class HerniPlan implements Subject{
+public class HerniPlan implements Subject {
 
     private static final String CILOVY_PROSTOR = "Zem";
     private Prostor aktualniProstor;
-    private Inventar inventar;
-    private boolean hracPrehral = false;
     
-    private List<Observer> listObserveru = new ArrayList<Observer>();
+    private List<Observer> listObserveru = new ArrayList<>();
 
     /**
      *  Konstruktor, který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví Zem.
      *  
-     *  @param inventar odkaz na inventár, ktorý sa používa na vkladanie a vyhadzovanie vecí z herného plánu
      */
-    public HerniPlan(Inventar inventar) {
+    
+    public HerniPlan() {
         zalozProstoryHry();
-        this.inventar = inventar;
     }
+    
     /**
      *  Vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví Zem.
@@ -43,25 +41,25 @@ public class HerniPlan implements Subject{
         
         // vytvářejí se jednotlivé prostory
           
-        Prostor planetaMerkur = new Prostor("Merkur", "planéte Merkúr, ktorá je na strane privrátenej k Slnku horúca\nna strane odvrátenej studená ako ľad", false, false, 1, 1);
-        Prostor planetaVenusa = new Prostor("Venusa", "planéte Venuša, ktorá je veľkosťou najviac podobná Zemi, ale zároveň\nnajhorúcejšia", false, false, 1, 1);
-        Prostor planetaZem = new Prostor("Zem","planéte Zem, na ktorej začíname, plná života a vody", false, false, 1, 1);
-        Prostor planetaMars = new Prostor("Mars", "planéte Mars, pokrytá oxidom železitým, ktorý jej dáva červenú farbu", false, false, 1, 1);
-        Prostor planetaJupiter = new Prostor("Jupiter", "planéte Jupiter, najväčší plynný obor, najväčšia planéta\nSlnečnej sústavy", false, true, 1, 1);
-        Prostor planetaSaturn = new Prostor("Saturn" ,"planéte Saturn, plynný obor, do žlta sfarbená, s nádhernými prstencami", false, true, 1, 1);
-        Prostor planetaUran = new Prostor("Uran", "planéte Urán, plynný obor, otočená inak ako iné planéty", false, true, 1, 1);
-        Prostor planetaNeptun = new Prostor("Neptun", "planéte Neptún, plynný obor, modrá ako obloha vďaka metánu", false, true, 1, 1);          
-        Prostor mesiacMesiac = new Prostor("Mesiac", "mesiaci Mesiac, jediný prirodzený satelit Zeme", false, false, 1, 1);
-        Prostor mesiacPhobos = new Prostor("Phobos", "mesiaci Phobos, väčší z dvojice mesiacov, ktoré má Mars", true, false, 1, 1);
-        Prostor mesiacDeimos = new Prostor("Deimos", "mesiaci Deimos, menší z dvojice mesiacov, ktoré má Mars", false, false, 1, 1);        
-        Prostor mesiacGanymedes = new Prostor("Ganymedes", "mesiaci Ganymedes, najväčší mesiac v Slnečnej sústave\nväčší ako samotný Merkúr", false, false, 1, 1);
-        Prostor mesiacKallisto = new Prostor("Kallisto", "mesiaci Kallisto, zložený z oxidu uhličitého\nkremičitanova organických látok", true, false, 1, 1);
-        Prostor mesiacIo = new Prostor("Io", "mesiaci Io, vulkanicky najaktívnejšie teleso v Slnečnej sústave\nz diaľky vyzerajúci ako pizza", false, false, 1, 1);
-        Prostor mesiacEuropa = new Prostor("Europa", "mesiaci Európa, pokrytý ľadom, pod ktorého povrchom sa pravdepodobne\nnachádza obrovský oceán", false, false, 1, 1);
-        Prostor mesiacTitan = new Prostor("Titan", "mesiaci Titan, mesiac väčší ako Merkúr, ktorého atmosféra\nje tak obrovská, že kvôli nej nevidno jeho povrch ", false, false, 1, 1);
-        Prostor mesiacJapetus = new Prostor("Japetus", "mesiaci Japetus, ktorý má veľmi nízku hustotu", true, false, 1, 1);
-        Prostor mesiacTitania = new Prostor("Titania", "mesiaci Titánia, známy obrovským kaňonom, ktorý je väčší ako\nGrand Canyon", false, false, 1, 1);
-        Prostor mesiacTriton = new Prostor("Triton", "mesiaci Triton, najväčší mesiac Neptúna a zároveň jediný\nktorý má guľatý tvar", false, false, 1, 1);
+        Prostor planetaMerkur = new Prostor("Merkur", "planéte Merkúr, ktorá je na strane privrátenej k Slnku horúca\nna strane odvrátenej studená ako ľad", false, false, 50, 48);
+        Prostor planetaVenusa = new Prostor("Venusa", "planéte Venuša, ktorá je veľkosťou najviac podobná Zemi, ale zároveň\nnajhorúcejšia", false, false, 120, 48);
+        Prostor planetaZem = new Prostor("Zem","planéte Zem, na ktorej začíname, plná života a vody", false, false, 190, 48);
+        Prostor planetaMars = new Prostor("Mars", "planéte Mars, pokrytá oxidom železitým, ktorý jej dáva červenú farbu", false, false, 270, 48);
+        Prostor planetaJupiter = new Prostor("Jupiter", "planéte Jupiter, najväčší plynný obor, najväčšia planéta\nSlnečnej sústavy", false, true, 330, 120);
+        Prostor planetaSaturn = new Prostor("Saturn" ,"planéte Saturn, plynný obor, do žlta sfarbená, s nádhernými prstencami", false, true, 280, 220);
+        Prostor planetaUran = new Prostor("Uran", "planéte Urán, plynný obor, otočená inak ako iné planéty", false, true, 180, 235);
+        Prostor planetaNeptun = new Prostor("Neptun", "planéte Neptún, plynný obor, modrá ako obloha vďaka metánu", false, true, 60, 210);          
+        Prostor mesiacMesiac = new Prostor("Mesiac", "mesiaci Mesiac, jediný prirodzený satelit Zeme", false, false, 180, 100);
+        Prostor mesiacPhobos = new Prostor("Phobos", "mesiaci Phobos, väčší z dvojice mesiacov, ktoré má Mars", true, false, 250, 10);
+        Prostor mesiacDeimos = new Prostor("Deimos", "mesiaci Deimos, menší z dvojice mesiacov, ktoré má Mars", false, false, 305, 10);        
+        Prostor mesiacGanymedes = new Prostor("Ganymedes", "mesiaci Ganymedes, najväčší mesiac v Slnečnej sústave\nväčší ako samotný Merkúr", false, false, 355, 70);
+        Prostor mesiacKallisto = new Prostor("Kallisto", "mesiaci Kallisto, zložený z oxidu uhličitého\nkremičitanova organických látok", true, false, 337, 187);
+        Prostor mesiacIo = new Prostor("Io", "mesiaci Io, vulkanicky najaktívnejšie teleso v Slnečnej sústave\nz diaľky vyzerajúci ako pizza", false, false, 390, 100);
+        Prostor mesiacEuropa = new Prostor("Europa", "mesiaci Európa, pokrytý ľadom, pod ktorého povrchom sa pravdepodobne\nnachádza obrovský oceán", false, false, 385, 155);
+        Prostor mesiacTitan = new Prostor("Titan", "mesiaci Titan, mesiac väčší ako Merkúr, ktorého atmosféra\nje tak obrovská, že kvôli nej nevidno jeho povrch ", false, false, 235, 167);
+        Prostor mesiacJapetus = new Prostor("Japetus", "mesiaci Japetus, ktorý má veľmi nízku hustotu", true, false, 305, 269);
+        Prostor mesiacTitania = new Prostor("Titania", "mesiaci Titánia, známy obrovským kaňonom, ktorý je väčší ako\nGrand Canyon", false, false, 155, 182);
+        Prostor mesiacTriton = new Prostor("Triton", "mesiaci Triton, najväčší mesiac Neptúna a zároveň jediný\nktorý má guľatý tvar", false, false, 70, 150);
           
         // přiřazují se průchody mezi prostory (sousedící prostory)
         
@@ -104,61 +102,62 @@ public class HerniPlan implements Subject{
 
         // vytvoříme několik věcí
         
-        Vec veternyStit = new Vec("veterny_stit", "Tento štít slúži na priblíženie sa k plynným obrom", true);
-        Vec opravnyBalik = new Vec("opravny_balik", "Balík slúži na opravenie lodi, vráti späť celý život", true);
-        Vec palivo = new Vec("palivo", "Palivo slúži na doplnenie paliva lode, doplní palivo do plna", true);
-        Vec hladacInteligencie = new Vec("hladac_inteligencie", "Hľadač slúži na vyhľadávanie mimozemštanov", true);
-        Vec kvapalnyVodik = new Vec("kvapalny_vodik", "Kvapalný vodík slúži ako súčasť paliva do rakety", true);
-        Vec protonovaStrela = new Vec("protonova_strela","Túto strelu použiješ v prípade, že nájdení mimozemštania nebudú priateľskí", true);
-        Vec laserovyLuc = new Vec("laserovy_unosny_luc","Lúč použiješ, ked budeš chcieť preskúmať flóru a faunu na inej planéte", true);
-        Vec kvapalnyKyslik = new Vec("kvapalny_kyslik","Kvapalný kyslík slúži ako súčasť paliva do rakety", true);
-        Vec kreslitelPoli = new Vec("kreslitel_poli","Tento nástroj je užitočný pri interakcii s nižšou mimozemskou inteligenciou", true);       
-        Vec kontAmerika = new Vec("Amerika","Amerika, kontinent známy veľkými jazerami, dlhým horským systémom a pralesom", false);
-        Vec kontAfrika = new Vec("Afrika","Afrika, kontinent známy savanami, rozmanitou flórou a faunou a daždovými pralesmi", false);
-        Vec kontEurazia = new Vec("Eurazia","Eurázia, kontinent, ktorý je najľudnatejší a najväčší", false);
-        Vec kontAustralia = new Vec("Australia","Austrália, najmenší kontinent, ktorý reprezentujú púšte", false);
-        Vec kontAntarktida = new Vec("Antarktida","Antarktída, kontinent pokrytý ľadom, ktorý je najchladnejší", false);
-        Vec oceany = new Vec("oceany","Obsahujú veľa vody", false);
-        Vec zvieraPes = new Vec("Hafanek","Nebudes na ceste sám", true);
-        Vec radiovyVysielac = new Vec("radiový_vysielac","Dáva možnosť komunikovať", true);
-        Vec anortozit = new Vec("anortozit","Hlbinná vyvrenina zložená takmer výhradne z bázických živcov anortitu, bytownitu a labradoritu",true);
-        Vec ilmenit = new Vec("ilmenit","Minerál, ktorý sa obyčajne vyskytuje vo forme celistvých alebo zrnitých agregátov", true);
-        Vec kraterPanvaCaloris = new Vec("krater_Panva_Caloris","Najväčší kráter na povrchu Merkúra a zároveň jeden z najväčších kráterov v Slnečnej sústave", false);
-        Vec kraterDegas = new Vec("krater_Degas","Impaktný kráter starý 500 miliónov rokov s priemerom 45 – 60 km", false);
-        Vec kraterBeethoven = new Vec("krater_Beethoven","Druhý najväčší impaktný kráter na Merkúre", false);
-        Vec oxidSiricity = new Vec("oxid_siricity","Oxid siričitý je bezfarebný reaktívny plyn, ktorý môže byť aj jedovatý", true);
-        Vec kyselinaSirova = new Vec("kyselina_sirova","Kyselina sírová je silná minerálna, anorganická kyselina, miešateľná s vodou v neobmedzenom pomere", true);
-        Vec horyMaxwellMontes = new Vec("Maxwell_Montes","Maxwell Montes je horské pásmo na Venuši. Nachádza sa v ňom aj najvyšší bod Venuše", false);
-        Vec aphroditeTerra= new Vec("Aphrodite_Terra","Aphrodite Terra je tektonická vyvýšenina", false);
-        Vec kremik = new Vec("kremik", "Kremík je pomerne tvrdý polokov s vysokou afinitou ku kyslíku", true);
-        Vec regolit = new Vec("regolit", "Regolit je nespevnený heterogénny materiál, pokrývajúci povrch Mesiaca", true);
-        Vec kraterTycho = new Vec("krater_Tycho", "Kráter Tycho je impaktný kráter, ktorý vznikol pred 109 miliónmi rokov", false);
-        Vec kraterKopernik = new Vec("krater_Kopernik", "Kráter Koperník je impaktný kráter, ktorý vznikol pred 810 miliónmi rokov ", false);
-        Vec oceanBurok = new Vec("Ocean_Burok", "Oceán Búrok je najväčšie mesačné more", false);
-        Vec oxidZelezity = new Vec("oxid_zelezity", "Oxid železitý je amfotérny oxid železa hnedočervenej farby", true);
-        Vec hematit = new Vec("hematit", "Hematit je minerál kryštalizujúci v trigonálnej sústave", true);
-        Vec olympusMons = new Vec("Olympus_Mons", "Olympus Mons je najvyššia známa hora Slnečnej sústavy", false);
-        Vec vallesMarineris = new Vec("Valles_Marineris", "Valles Marineris, je najväčší riftový systém v slnečnej sústave", false);
-        Vec tharsis = new Vec("Tharsis", "Tharsis je obrovská vulkanická oblasť", false);
-        Vec materialUhlik = new Vec("uhlik", "Uhlík tvorí základný stavebný kameň všetkých organických zlúčenín", true);
-        Vec materialVodik = new Vec("vodik", "Vodík je číry, bezfarebný plyn bez chuti a zápachu", true);
-        Vec materialHelium = new Vec("helium", "Hélium je bezfarebný plyn, bez chuti a zápachu, chemicky úplne inertný", true);
-        Vec zmrznutyAmoniak = new Vec("zmrznuty_amoniak", "Amoniak je toxický, žieravý, bezfarebný plyn so silne dráždivým zápachom", true);
-        Vec velkaSkvrna = new Vec("Velka_cervena_skvrna", "Veľká červená škvrna je obrovský hurikán, väčší ako samotná Zem", false);
-        Vec galileoRegio= new Vec("Galileo_Regio", "Galileo Regio je veľká, tmavo zafarbená, povrchová štruktúra", false);
-        Vec kraterAsgard = new Vec("krater_Asgard", "Asgard je druhý najväčší impaktný kráter", false);
-        Vec tohilMons = new Vec("Tohil_Mons", " Tohil Mons je hora vysoká 5,4 km", false);
-        Vec materialLad = new Vec("lad", "Ľad je pevné skupenstvo vody", true);
-        Vec lentikuly = new Vec("lentikuly","Lentikuly sú hladké ľadové planiny a okrúhle či podlhovasté škvrny", false);
-        Vec prstence = new Vec("prstence", "Prstence sú tvorené množstvom drobných čiastočiek", false);
-        Vec materialDusik = new Vec("dusik", "Dusík je plyn bez farby a zápachu", true);
-        Vec ligeiaMare = new Vec("Ligeia_Mare", "Ligeia Mare je metánové jazero na povrchu Titana", false);
-        Vec kraterTurgis = new Vec("krater_Turgis", "Kráter Turgis je obrovský kráter s priemerom 580 km", false);
-        Vec materialMetan = new Vec("metan", "Metán je najjednoduchší uhľovodík", true);
-        Vec messinaChasma = new Vec("Messina_Chasma", "Messina Chasma je obrovský kaňon na povrchu Titánie", false);
-        Vec gejziryDusika = new Vec("gejziry_dusika", "Tieto gejzíry na povrchu Tritona vystreľujú do atmosféry dusík", false);
+        Vec veternyStit = new Vec("veterny_stit", "Veterný štít", "Tento štít slúži na priblíženie sa k plynným obrom", true, "/zdroje/items/shield.png"); //done
+        Vec opravnyBalik = new Vec("opravny_balik", "Opravný balík", "Balík slúži na opravenie lodi, vráti späť celý život", true, "/zdroje/items/repair.png"); //done
+        Vec palivo = new Vec("palivo", "Palivo", "Palivo slúži na doplnenie paliva lode, doplní palivo do plna", true, "/zdroje/items/fuel.png"); //done
+        Vec hladacInteligencie = new Vec("hladac_inteligencie", "Hľadač inteligencie", "Hľadač slúži na vyhľadávanie mimozemštanov", true, "/zdroje/items/alienfinder.png"); //done
+        Vec kvapalnyVodik = new Vec("kvapalny_vodik", "Kvapalný vodík", "Kvapalný vodík slúži ako súčasť paliva do rakety", true, "/zdroje/items/liquid_h.png"); //done
+        Vec protonovaStrela = new Vec("protonova_strela","Protónová strela", "Túto strelu použiješ v prípade, že nájdení mimozemštania nebudú priateľskí", true, "/zdroje/items/missile.png"); //done
+        Vec laserovyLuc = new Vec("laserovy_unosny_luc","Laserový únosný lúč", "Lúč použiješ, ked budeš chcieť preskúmať flóru a faunu na inej planéte", true, "/zdroje/items/laser.png"); //done
+        Vec kvapalnyKyslik = new Vec("kvapalny_kyslik","Kvapalný kyslík", "Kvapalný kyslík slúži ako súčasť paliva do rakety", true, "/zdroje/items/liquid_o.png"); //done
+        Vec kreslitelPoli = new Vec("kreslitel_poli","Kresliteľ polí", "Tento nástroj je užitočný pri interakcii s nižšou mimozemskou inteligenciou", true, "/zdroje/items/kreslitel.png"); //done     
+        Vec kontAmerika = new Vec("Amerika","Amerika", "Amerika, kontinent známy veľkými jazerami, dlhým horským systémom a pralesom", false, "/zdroje/items/america.png"); //done
+        Vec kontAfrika = new Vec("Afrika","Afrika", "Afrika, kontinent známy savanami, rozmanitou flórou a faunou a daždovými pralesmi", false, "/zdroje/items/africa.png"); //done
+        Vec kontEurazia = new Vec("Eurazia","Eurázia", "Eurázia, kontinent, ktorý je najľudnatejší a najväčší", false, "/zdroje/items/eurasia.png"); //done
+        Vec kontAustralia = new Vec("Australia","Austrália", "Austrália, najmenší kontinent, ktorý reprezentujú púšte", false, "/zdroje/items/australia.png"); //done
+        Vec kontAntarktida = new Vec("Antarktida","Antarktída", "Antarktída, kontinent pokrytý ľadom, ktorý je najchladnejší", false, "/zdroje/items/antarctica.png"); //done
+        Vec oceany = new Vec("oceany","Oceány", "Obsahujú veľa vody", false, "/zdroje/items/oceans.png"); //done
+        Vec zvieraPes = new Vec("Hafanek","Hafánek", "Nebudes na ceste sám", true, "/zdroje/items/dog.png"); //done
+        Vec radiovyVysielac = new Vec("radiovy_vysielac","Rádiový vysielač", "Dáva možnosť komunikovať", true, "/zdroje/items/satellite.png"); //done
+        Vec anortozit = new Vec("anortozit", "Anortozit", "Hlbinná vyvrenina zložená takmer výhradne z bázických živcov anortitu, bytownitu a labradoritu", true, "/zdroje/items/anortozit.jpg"); //done
+        Vec ilmenit = new Vec("ilmenit", "Ilmenit", "Minerál, ktorý sa obyčajne vyskytuje vo forme celistvých alebo zrnitých agregátov", true, "/zdroje/items/ilmenit.JPG"); //done
+        Vec kraterPanvaCaloris = new Vec("krater_Panva_Caloris","Kráter Panva Caloris", "Najväčší kráter na povrchu Merkúra a zároveň jeden z najväčších kráterov v Slnečnej sústave", false, "/zdroje/items/crater.jpg"); //done
+        Vec kraterDegas = new Vec("krater_Degas","Kráter Degas", "Impaktný kráter starý 500 miliónov rokov s priemerom 45 – 60 km", false, "/zdroje/items/crater.jpg"); //done
+        Vec kraterBeethoven = new Vec("krater_Beethoven","Kráter Beethoven", "Druhý najväčší impaktný kráter na Merkúre", false, "/zdroje/items/crater.jpg"); //done
+        Vec oxidSiricity = new Vec("oxid_siricity","Oxid siričitý", "Oxid siričitý je bezfarebný reaktívny plyn, ktorý môže byť aj jedovatý", true, "/zdroje/items/oxidsir.png"); //done
+        Vec kyselinaSirova = new Vec("kyselina_sirova","Kyselina sírová", "Kyselina sírová je silná minerálna, anorganická kyselina, miešateľná s vodou v neobmedzenom pomere", true, "/zdroje/items/h2so4.png"); //done
+        Vec horyMaxwellMontes = new Vec("Maxwell_Montes","Maxwell Montes", "Maxwell Montes je horské pásmo na Venuši. Nachádza sa v ňom aj najvyšší bod Venuše", false, "/zdroje/items/mountains.png"); //done
+        Vec aphroditeTerra= new Vec("Aphrodite_Terra","Aphrodite Terra", "Aphrodite Terra je tektonická vyvýšenina", false, "/zdroje/items/aphroditet.jpg"); //done
+        Vec kremik = new Vec("kremik","Kremík", "Kremík je pomerne tvrdý polokov s vysokou afinitou ku kyslíku", true, "/zdroje/items/kremik.jpg"); //done
+        Vec regolit = new Vec("regolit", "Regolit", "Regolit je nespevnený heterogénny materiál, pokrývajúci povrch Mesiaca", true, "/zdroje/items/regolit.jpg"); //done
+        Vec kraterTycho = new Vec("krater_Tycho", "Kráter Tycho", "Kráter Tycho je impaktný kráter, ktorý vznikol pred 109 miliónmi rokov", false, "/zdroje/items/crater.jpg"); //done
+        Vec kraterKopernik = new Vec("krater_Kopernik", "Kráter Kopernik", "Kráter Koperník je impaktný kráter, ktorý vznikol pred 810 miliónmi rokov ", false, "/zdroje/items/crater.jpg"); //done
+        Vec oceanBurok = new Vec("Ocean_Burok", "Oceán Búrok", "Oceán Búrok je najväčšie mesačné more", false, "/zdroje/items/oceanburok.png"); //done
+        Vec oxidZelezity = new Vec("oxid_zelezity", "Oxid železitý", "Oxid železitý je amfotérny oxid železa hnedočervenej farby", true, "/zdroje/items/oxidzel.jpg"); //done
+        Vec hematit = new Vec("hematit", "Hematit", "Hematit je minerál kryštalizujúci v trigonálnej sústave", true, "/zdroje/items/hematit.jpg"); //done
+        Vec olympusMons = new Vec("Olympus_Mons", "Olympus Mons", "Olympus Mons je najvyššia známa hora Slnečnej sústavy", false, "/zdroje/items/olympusmons.jpg"); //done
+        Vec vallesMarineris = new Vec("Valles_Marineris", "Valles Marineris", "Valles Marineris, je najväčší riftový systém v slnečnej sústave", false, "/zdroje/items/valles_marineris.jpg"); //done
+        Vec tharsis = new Vec("Tharsis", "Tharsis", "Tharsis je obrovská vulkanická oblasť", false, "/zdroje/items/tharsis.jpg"); //done
+        Vec materialUhlik = new Vec("uhlik", "Uhlík", "Uhlík tvorí základný stavebný kameň všetkých organických zlúčenín", true, "/zdroje/items/uhlik.png"); //done
+        Vec materialVodik = new Vec("vodik", "Vodík", "Vodík je číry, bezfarebný plyn bez chuti a zápachu", true, "/zdroje/items/vodik.png"); //done
+        Vec materialHelium = new Vec("helium", "Hélium", "Hélium je bezfarebný plyn, bez chuti a zápachu, chemicky úplne inertný", true, "/zdroje/items/helium.png"); //done
+        Vec zmrznutyAmoniak = new Vec("zmrznuty_amoniak", "Zmrznutý amoniak", "Amoniak je toxický, žieravý, bezfarebný plyn so silne dráždivým zápachom", true, "/zdroje/items/amoniak.png"); //done
+        Vec velkaSkvrna = new Vec("Velka_cervena_skvrna", "Veľká Červená Škvrna", "Veľká červená škvrna je obrovský hurikán, väčší ako samotná Zem", false, "/zdroje/items/redspot.jpg"); //done
+        Vec galileoRegio= new Vec("Galileo_Regio", "Galileo Regio", "Galileo Regio je veľká, tmavo zafarbená, povrchová štruktúra", false, "/zdroje/items/regio.jpg"); //done
+        Vec kraterAsgard = new Vec("krater_Asgard", "Kráter Asgard", "Asgard je druhý najväčší impaktný kráter", false, "/zdroje/items/crater.jpg"); //done
+        Vec tohilMons = new Vec("Tohil_Mons", "Tohils Mons", "Tohil Mons je hora vysoká 5,4 km", false, "/zdroje/items/mountains.png"); //done
+        Vec materialLad = new Vec("lad", "Ľad", "Ľad je pevné skupenstvo vody", true, "/zdroje/items/ice.png"); //done
+        Vec lentikuly = new Vec("lentikuly","Lentikuly", "Lentikuly sú hladké ľadové planiny a okrúhle či podlhovasté škvrny", false, "/zdroje/items/lentikuly.jpg"); //done
+        Vec prstence = new Vec("prstence", "Prstence", "Prstence sú tvorené množstvom drobných čiastočiek", false, "/zdroje/items/ringssat.jpg"); //done
+        Vec materialDusik = new Vec("dusik", "Dusík", "Dusík je plyn bez farby a zápachu", true, "/zdroje/items/dusik.png"); //done
+        Vec ligeiaMare = new Vec("Ligeia_Mare", "Ligeia Mare", "Ligeia Mare je metánové jazero na povrchu Titana", false, "/zdroje/items/ligeamare.jpg"); //done
+        Vec kraterTurgis = new Vec("krater_Turgis", "Kráter Turgis" , "Kráter Turgis je obrovský kráter s priemerom 580 km", false, "/zdroje/items/crater.jpg"); //done
+        Vec materialMetan = new Vec("metan", "Metán", "Metán je najjednoduchší uhľovodík", true, "/zdroje/items/metan.png"); //done
+        Vec messinaChasma = new Vec("Messina_Chasma", "Messina Chasma", "Messina Chasma je obrovský kaňon na povrchu Titánie", false, "/zdroje/items/messina.jpg"); //done
+        Vec gejziryDusika = new Vec("gejziry_dusika", "Gejzíry dusíka", "Tieto gejzíry na povrchu Tritona vystreľujú do atmosféry dusík", false, "/zdroje/items/geyser.png"); //done
         
         // umístíme věci do prostorů
+        
         
         mesiacTriton.vlozVec(gejziryDusika);
         mesiacTriton.vlozVec(materialDusik);
@@ -252,44 +251,6 @@ public class HerniPlan implements Subject{
        aktualniProstor = prostor;
        notifyObservers();
     }
-    
-    /**
-     *  Metoda testuje, či hráč vyhral alebo nie, porovnáva aktuálny
-     *  priestor s cieľovým priestorom a kontroluje, či 
-     *  hráč zozbieral všetky potrebné predmety,
-     *  pri testovaní využíva metódu jeVInventari("názov_predmetu") 
-     *
-     *@return  true = hráč vyhral, false = hráč prehral
-     */
-    public boolean hracVyhral() {
-        if (aktualniProstor.getNazev().equals(CILOVY_PROSTOR) && inventar.jeVInventari("hladac_inteligencie") && 
-        inventar.jeVInventari("kvapalny_vodik") && inventar.jeVInventari("protonova_strela") && inventar.jeVInventari("laserovy_unosny_luc") &&
-        inventar.jeVInventari("kvapalny_kyslik") && inventar.jeVInventari("kreslitel_poli")) {
-            return true;
-        }
-        
-        return false;
-    }
-    
-    /**
-     *  Metoda vracia hodnotu premennej hracPrehral, ktorá obsahuje 
-     *  informáciu o tom, či hráč prehral alebo nie
-     *
-     *@return  true = hráč prehral, false = hráč neprehral
-     */
-    public boolean getHracPrehral() {
-        return hracPrehral;
-    }
-    
-    /**
-     *  Metoda nastavuje hodnotu premennej hracPrehral, ktorá obsahuje 
-     *  informáciu o tom, či hráč prehral alebo nie
-     *
-     *@param hracPrehral true = hráč prehral, false = hráč vyhral
-     */
-    public void setHracPrehral(boolean hracPrehral) {
-        this.hracPrehral = hracPrehral;
-    }
 
     @Override
     public void registerObserver(Observer observer) {
@@ -306,6 +267,15 @@ public class HerniPlan implements Subject{
         for (Observer listObserveruItem : listObserveru) {
             listObserveruItem.update();
         }
+    }
+    
+    /**
+     * Metóda vráti cieľový priestor, na ktorom sa začína
+     * 
+     * @return CILOVY_PROSTOR cieľový priestor
+     */
+    public String getCilovyProstor() {
+        return CILOVY_PROSTOR;
     }
 
 }

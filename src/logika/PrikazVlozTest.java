@@ -24,7 +24,7 @@ public class PrikazVlozTest
     public PrikazVlozTest()
     {
         inventar = new Inventar();
-        hPlan = new HerniPlan(inventar);
+        hPlan = new HerniPlan();
         prikaz = new PrikazVloz(hPlan, inventar);
     }
 
@@ -57,8 +57,8 @@ public class PrikazVlozTest
     @Test
     public void testVlozProved() {
         Prostor prostor = new Prostor("izba","na bývanie", false, false, 1, 1);
-        Vec vec1 = new Vec("sponka", "sponka do vlasov", true);
-        Vec vec2 = new Vec("kamión", "veľké vozidlo", false);
+        Vec vec1 = new Vec("sponka", "","sponka do vlasov", true, "/zdroje/bla");
+        Vec vec2 = new Vec("kamión", "","veľké vozidlo", false, "/zdroje/bla");
         prostor.vlozVec(vec1);
         prostor.vlozVec(vec2);
         hPlan.setAktualniProstor(prostor);

@@ -64,8 +64,8 @@ public class ProstorTest
     public void testVeci()
     {
         logika.Prostor prostor1 = new logika.Prostor(null, null, false, false, 1, 1);
-        logika.Vec vec1 = new logika.Vec("a", "popis a", true);
-        logika.Vec vec2 = new logika.Vec("b", "popis b", false);
+        logika.Vec vec1 = new logika.Vec("a", "","popis a", true, "/zdroje/bla");
+        logika.Vec vec2 = new logika.Vec("b", "","popis b", false, "/zdroje/bla");
         prostor1.vlozVec(vec1);
         prostor1.vlozVec(vec2);
         assertSame(vec1, prostor1.odeberVec("a"));
